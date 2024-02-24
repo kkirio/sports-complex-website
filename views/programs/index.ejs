@@ -1,0 +1,43 @@
+<div class="content">
+	<div class="center">
+		<h1>Programs</h1>
+		<% if (loggedIn) {
+			if (currentUser.isAdmin) { %>
+				<h4><a href="/programs/new">Create a New Program</a></h4>
+			<% }
+		} %>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Schedule</th>
+			<th>Instructor</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% programs.forEach(program => { %>
+			<tr>
+			<td><%= program.name %></td>
+			<td><%= program.description %></td>
+			<td><%= program.schedule %></td>
+			<td><%= program.instructor %></td>
+			<td><a href="<%= `/programs/${program._id}`%>">View</a></td>
+			<% if (loggedIn) {
+				if (currentUser.isAdmin) { %>
+					<td><a href="<%=`/programs/${program._id}/edit` %>">Edit</a></td>
+					<td>
+						<a
+						href="<%= `/programs/${program._id}/delete?_method=DELETE` %>"
+						onclick="return confirm('Are you sure you want to delete this record?')"
+						>Delete</a
+						>
+					</td>
+				<% } %>
+			<% } %>
+			</tr>
+			<% }); %>
+		</tbody>
+	</table>
+</div>

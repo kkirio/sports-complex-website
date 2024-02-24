@@ -1,0 +1,39 @@
+<div class="content">
+	<div class="center">
+		<h1>Contact Queries</h1>
+	</div>
+	<table class="table">
+	<thead>
+		<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Title</th>
+		<th>Issue</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% contacts.forEach((c) => { %>
+		<tr>
+			<td><%= c.name %></td>
+			<td><%= c.email %></td>
+			<td><%= c.title %></td>
+			<td>
+				<%= c.issue.substring(0, 50) %>
+				<% if (c.issue.length > 50) { %>
+					...
+				<% } %>
+			</td>
+			<td><a href="<%= `/contact/${c._id}`%>">View</a></td>
+			<td>
+				<a
+				href="<%= `contact/${c._id}/delete?_method=DELETE` %>"
+				onclick="return confirm('Are you sure you want to delete this record?')"
+				>Delete</a
+				>
+			</td>
+		</tr>
+		<% }); %>
+	</tbody>
+	</table>
+</div>
+

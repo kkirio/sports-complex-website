@@ -1,0 +1,39 @@
+
+<div class="content">
+	<div class="center">
+		<h2>Membership Details</h2>
+		<a href="/memberships">View all memberships</a>
+		<% if (loggedIn) { %>
+			<% if (currentUser.isAdmin) { %>
+				 | 
+				<a href="<%= `/memberships/${membership._id}/edit` %>">Edit</a> |
+				<a href="<%= `/memberships/${membership._id}/delete?_method=DELETE` %>"
+					onclick="return confirm('Are you sure you want to delete this record?')">
+					Delete
+				</a>
+			<% } %>
+		<% } %>
+	</div>
+	<br />
+	<table class="fit-table">
+		<tr>
+			<th>Type</th>
+			<td><%= membership.type %></td>
+		</tr>
+		<tr>
+			<th>Duration</th>
+			<td><%= membership.duration %></td>
+		</tr>
+		<tr>
+			<th>Price</th>
+			<td><%= membership.price %></td>
+		</tr>
+	</table>
+	<% if (loggedIn) { %>
+	<div class="center">
+		<h3>
+			<a href="<%=`/memberships/${membership._id}/enrollUser`%>">Buy Membership!</a>
+		</h3>
+	</div>
+	<% } %>
+</div>

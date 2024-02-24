@@ -1,0 +1,33 @@
+<div class="content">
+	<div class="center">
+		<h2>User Profile</h2>
+		<% if (loggedIn) { %>
+			<% if (currentUser.isAdmin) { %>
+				<a href="/contact">View all contact messages</a> | 
+				<a href="<%= `/contact/${contact._id}/delete?_method=DELETE` %>"
+					onclick="return confirm('Are you sure you want to delete this record?')">
+					Delete
+				</a>
+			<% } %>
+		<% } %>
+	</div>
+	<br />
+	<table class="fit-table">
+		<tr>
+			<th>Name</th>
+			<td><%= contact.name%></td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td><%= contact.email %></td>
+		</tr>
+		<tr>
+			<th>Title</th>
+			<td><%= contact.title %></td>
+		</tr>
+		<tr>
+			<th>Issue</th>
+			<td><%= contact.issue %></td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandeis Sport Complex</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head> 
+<body>
+	<% if (flashMessages) { %> 
+		<% if (flashMessages.success) { %>
+			<div class="flash success">
+				<span class="closebtn">&times;</span>
+				<%= flashMessages.success %>
+			</div>
+		<% } else if (flashMessages.error) { %>
+			<div class="flash error">
+				<span class="closebtn">&times;</span>
+				<%= flashMessages.error %>
+			</div>
+	<% }} %>
+	<header>
+		<img src="/images/judges.png" alt="Brandeis University Judges"/>
+	<div class = "header-text">
+		<h1> Brandeis Univeristy Judges</h1>
+	</div> 
+    <nav>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/facilities">Facilities</a>
+          <a href="/programs">Programs</a>
+          <a href="/events">Events</a>
+          <a href="/memberships">Membership</a>
+          <a href="/contact/new">Contact us</a>
+          <% if (loggedIn) { %>
+            <a href = "/users/<%= currentUser._id %>"><%= currentUser.name %></a>
+            <a href = "/users/logout">Log Out</a>
+          <% } %>
+          <% if (!loggedIn) { %>
+            <a href = "/users/login">Login</a>
+            <a href = "/users/new">Sign Up</a>
+          <% } %>
+    </nav>
+</header>
+<main>
+	<%- body %>
+</main>
+<%- include("partials/footer")%>
+</body>
+
+<!-- Animation for flash messages -->
+<script>
+    var close = document.getElementsByClassName("closebtn");
+    for (var i = 0; i < close.length; i++) {
+      close[i].onclick = function() {
+        var div = this.parentElement;
+        div.style.opacity = "0";
+        setTimeout(function() { div.style.display="none"; }, 600);
+      }
+    }
+</script>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>membership page</title>
+    <link rel="stylesheet" href="../public/css/styles.css" type="text/css" />
+
+</head>
+<body>
+    <h1>Facility Memberships</h1>
+    
+    <h2>Brandeis Students, Faculty, and Staff</h2>
+    <p>
+        All current Brandeis students, faculty, and staff, may use the athletic 
+        facilities free of charge.  A valid Brandeis ID card must be presented
+        to enter and upon request.
+    </p>
+
+    <h2>Paid Memberships</h2>
+
+    <h3>Eligible Individuals</h3>
+    <ul>
+        <li>Alumni</li>
+        <li>Immediate family of current student, faculty or staff (must be 18 years or older)</li>
+        <li>Waltham senior citizen (must be 65 years or older and a Waltham resident)</li>
+        <li>Current BOLLI student</li>
+    </ul>
+
+    <h3>Pricing</h3>
+    <table>
+        <tr>
+            <th>Term</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>Full year</td>
+            <td>$500</td>
+        </tr>
+        <tr>
+            <td>Semester</td>
+            <td>$300</td>
+        </tr>
+        <tr>
+            <td>Summer</td>
+            <td>$250</td>
+        </tr>
+        <tr>
+            <td>Intercession break</td>
+            <td>$100</td>
+        </tr>
+    </table> 
+
+    <p>
+        Please complete the application below. Instructions for proof of identity 
+        and picking up membership card will be provided to the given email.
+    </p>
+    <form action="/contact" method="post">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="name">Name</label><br />
+            <input type="text" name="name" /><br />
+            <label for="email">Email</label><br />
+            <input type="email" name="email" /><br />
+        </fieldset>
+        <fieldset>
+            <legend>Length of membership</legend>
+            <input type="radio" id="year" name="member_length" />
+            <label for="year">Full year</label><br />
+            <input type="radio" id="semester" name="member_length" />
+            <label for="semester">Semester</label><br />
+            <input type="radio" id="summer" name="member_length" />
+            <label for="summer">Summer</label><br />
+            <input type="radio" id="intercession" name="member_length" />
+            <label for="intercession">Intercession break</label><br />
+        </fieldset>
+        <fieldset>
+            <legend>Eligibility</legend>
+            <input type="radio" id="alumni" name="eligibility" />
+            <label for="alumni">Alumni</label><br />
+            <input type="radio" id="family" name="eligibility" />
+            <label for="family">Immediate family</label><br />
+            <input type="radio" id="senior" name="eligibility" />
+            <label for="senior">Waltham senior citizen</label><br />
+            <input type="radio" id="bolli" name="eligibility" />
+            <label for="bolli">BOLLI student</label><br />
+        </fieldset>
+        <input type="submit" value="Submit" />
+    </form>
+
+    <h2>Guest Policy</h2>
+    <p>
+        Members may bring guests into the facility. Guests must sign a liability form
+        and pay a fee of $10/day, cash or check only.
+    </p>
+    
+    <h2>Child Policy</h2>
+    <p>
+        Children 12 years and younger may accompany members for no additional charge. 
+        Children 13 years and older must follow the Guest Policy (above). All children
+        must be supervised by their parent/guardian at all times.
+    </p>
+    <p class="mem">Click <a href="https://www.brandeisjudges.com/information/roundup/index">Here</a> to sign up for our monthly Judges Roundup!</p>
+    <p class="mem">Check out <a href="https://www.ncaa.org/sports/2021/3/11/membership.aspx">This</a> resource guide to learn more about our membership.</p>
+</body>
+</html>

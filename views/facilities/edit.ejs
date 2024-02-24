@@ -1,0 +1,44 @@
+<div class="content">
+	<div class="data-form">
+		<form method = "POST" action = "<%=`/facilities/${facility._id}/update?_method=PUT`%>">
+			<h2>Edit facility information:</h2>
+			<div class="form-inputs">
+				<div class="row">
+					<label for = "name">Name: * </label>
+					  <input
+					  	type = "text"
+						name = "name"
+						id = "name"
+						value = "<%= facility.name %>"
+						required
+						autofocus
+					>
+				</div>
+				<br />
+				<div class="row">
+					<label for = "type" >Type: * </label>
+					<input
+						type = "text"
+						name = "type"
+						id = "type"
+						value = "<%= facility.type %>"
+						required
+					>	
+				</div>
+				<br />
+				<div class="row">
+					<label for = "description">Description: * </label>
+					<input
+						type = "text"
+						name = "description"
+						id = "description"
+						value = "<%= facility.description %>"
+						required
+					>	
+				</div>
+				<br />
+			</div>
+		  	<button type = "submit"> Update </button>
+		</form>
+	</div>
+</div>

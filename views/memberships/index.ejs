@@ -1,0 +1,46 @@
+<div class="content">
+	<div class="center">
+		<h1>Memberships</h1>
+		<% if (loggedIn) {
+			if (currentUser.isAdmin) { %>
+				<h4><a href="/memberships/new">Create a New Membership</a></h4>
+			<% }
+		} %>
+	</div>
+	<table class="table">
+	<thead>
+		<tr>
+		<th>Type</th>
+		<th>Duration</th>
+		<th>Price</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% memberships.forEach(membership => { %>
+		<tr>
+		<td><%= membership.type %></td>
+		<td><%= membership.duration %></td>
+		<td><%= membership.price %></td>
+		<td><a href="<%= `/memberships/${membership._id}`%>">View</a></td>
+		<% if (loggedIn) { %>
+			<td>
+				<a href="<%=`/memberships/${membership._id}/enrollUser`%>">Purchase</a>
+			</td>
+			<% if (currentUser.isAdmin) { %>
+				<td>
+					<a href="<%=`/memberships/${membership._id}/edit`%>">Edit</a>
+				</td>
+				<td>
+					<a
+					href="<%= `/memberships/${membership._id}/delete?_method=DELETE` %>"
+					onclick="return confirm('Are you sure you want to delete this record?')"
+					>Delete</a
+					>
+				</td>
+			<% } %>
+		<% } %>
+		</tr>
+		<% }); %>
+	</tbody>
+	</table>
+</div>

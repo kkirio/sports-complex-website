@@ -1,0 +1,61 @@
+
+<div class="content">
+	<div class="center">
+		<h2>User Profile</h2>
+		<% if (loggedIn) { %>
+			<% if (currentUser.isAdmin) { %>
+				<a href="/users">View all users</a> | 
+			<% } %>
+			<a href="<%=`/users/${user._id}/edit`%>">Edit</a> | 
+			<a href="<%= `/users/${user._id}/delete?_method=DELETE` %>"
+				onclick="return confirm('Are you sure you want to delete this record?')">
+				Delete
+			</a>
+		<% } %>
+	</div>
+	<table class="fit-table">
+		<tr>
+			<th>Name</th>
+			<td><%= user.name%></td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td><%= user.email %></td>
+		</tr>
+		<tr>
+			<th>Memberships</th>
+			<td>
+				<% if (user.membership.length < 1) { %>
+					None
+				<% } else { %>
+				<ul>
+					<% user.membership.forEach(m => { %>
+						<% if (m) { %>
+							<li>
+								<span>
+									<a href="/memberships/<%= m._id %>">
+										<%= m.type %>, <%= m.duration %> days
+									</a>
+								</span>
+							</li>
+							
+						<% } %>
+					<% }) %>
+				</ul>
+				<% } %>
+				</ul>
+			</td>
+		</tr>
+		-->
+		<tr>
+			<th>Admin</th>
+			<td>
+				<% if (user.isAdmin) { %>
+					Yes
+				<% } else { %>
+					No
+				<% } %>
+			</td>
+		</tr>
+	</table>
+</div>

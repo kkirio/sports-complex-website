@@ -1,0 +1,44 @@
+<div class="content">
+	<div class="data-form">
+		<form action="<%=`/memberships/${membership._id}/update?_method=PUT`%>" method="POST">
+			<h2>Edit membership:</h2>
+			<div class="form-inputs">
+				<div class="row">
+					<label for="type">Type: * </label>
+					<input
+						type="text"
+						name="type"
+						id="type"
+						value="<%= membership.type %>"
+						autofocus
+						required
+					/>
+				</div>
+				<br>
+				<div class="row">
+					<label for="duration">Duration: * </label>
+					<input
+						type="number"
+						name="duration"
+						id="duration"
+						value="<%= membership.duration %>"
+						required
+					/>
+				</div>
+				<br>
+				<div class="row">
+					<label for="price">Price: * </label>
+					<input
+						type="number"
+						name="price"
+						id="price"
+						value="<%= membership.price %>"
+						required
+					/>
+				</div>
+				<br>
+			</div>			
+			<button type="submit">Update</button>
+		</form>
+	</div>
+</div>

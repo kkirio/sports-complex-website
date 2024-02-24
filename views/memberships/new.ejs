@@ -1,0 +1,25 @@
+<div class="content">
+	<div class="data-form">
+		<form action="/memberships/create" method="POST">
+			<h2>Create a new membership:</h2>
+			<div class="form-inputs">
+				<div class="row">
+					<label for="type">Type: * </label>
+					<input type="text" name="type" id="type" required autofocus>
+				</div>
+				<br>
+				<div class="row">
+					<label for="duration">Duration: * </label>
+					<input type="number" name="duration" id="duration" required>
+				</div>
+				<br>
+				<div class="row">
+					<label for="price">Price: * </label>
+					<input type="number" name="price" id="price" required>
+				</div>
+				<br>
+			</div>
+			<button type="submit"> Create </button>
+		</form>
+	</div>
+</div>

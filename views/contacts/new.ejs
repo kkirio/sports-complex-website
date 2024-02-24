@@ -1,0 +1,38 @@
+<div class="content">
+	<div class="center">
+		<h1>Contact Us</h1>
+		<h3>415 South Street, Waltham, MA 02453 | (781) 736-3668 | sportsinfo@brandeis.edu</h3>
+		<% if (loggedIn) {
+			if (currentUser.isAdmin) { %>
+				<h2><a href="/contact">View messages</a></h2>
+			<% } %>
+		<% } %>
+		<h2>Send a message</h2>
+	</div>
+  <form action="/contact/create" method="POST">
+	<div class="form-inputs">
+		<div class="row">
+			<label for="inputName">Name: * </label>
+			<input type="text" name="name" id="inputName" autofocus required>
+		</div>
+		<br>
+		<div class="row">
+			<label for="inputEmail">Email: * </label>
+			<input type="text" name="email" id="inputEmail" required>
+		</div>
+		<br>
+		<div class="row">
+			<label for="iputTitle">Title: * </label>
+			<input type="text" name="title" id="inputTitle" required>
+		</div>
+		<br>
+	</div>
+	<label for="inputIssue">Issue: * </label><br>
+	<textarea name="issue" id="inputIssue" cols="30" rows="10" required></textarea>
+	<br />
+	<br />
+    <input type="submit" value="Submit" />
+  </form>
+  <br />
+</div>
+

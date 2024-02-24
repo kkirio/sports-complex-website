@@ -1,0 +1,56 @@
+<div class="content">
+	<div class="data-form">
+		<form method = "POST" action = "<%=`/events/${event._id}/update?_method=PUT`%>">
+			<h2>Edit event information:</h2>
+			<div class="form-inputs">
+				<div class="row">
+					<label for = "name">Name: * </label>
+					<input 
+						type = "text"
+						name = "name"
+						id = "name"
+						value = "<%= event.name %>"
+						required
+						autofocus
+					>
+				</div>
+				<br />
+				<div class="row">
+					<label for = "description" >Description: * </label>
+					  <input
+						type = "text"
+						name = "description"
+						id = "description"
+						value = "<%= event.description %>"
+						required
+					>
+				</div>
+				<br />
+				<div class="row">
+					<label for = "location">Location: * </label>
+					  <input
+						type = "text"
+						name = "location"
+						id = "location"
+						value = "<%= event.location %>"
+						required
+					>
+				</div>
+				<br />
+				<div class="row">
+					<label for = "date">Date: * </label>
+					  <input
+						type = "date"
+						name = "date"
+						id = "date"
+						value = "<%= event.date.toISOString().substr(0, 10) %>"
+						required
+					>
+				</div>
+				<br />
+			</div>
+			  <button type = "submit"> Update </button>
+		</form>
+	</div>
+
+</div>

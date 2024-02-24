@@ -1,0 +1,51 @@
+<div class="content">
+<div class="data-form">
+  <form action="/events/create" method="POST">
+    <h2>Create a New Event:</h2>
+	<div class="form-inputs">
+		<div class="row">
+			<label for="name">Name: * </label>
+			<input
+				type="text"
+				name="name"
+				id="name"
+				required
+				autofocus
+			/>
+		</div>
+		<br />
+		<div class="row">
+			<label for = "description">Description: * </label>
+			<input
+				type="text"
+				name="description"
+				id="description"
+				required
+			/>
+		</div>
+		<br />
+		<div class="row">
+			<label for = "location">Location: * </label>
+			<input
+				type="text"
+				name="location"
+				id="location"
+				required
+			/>
+		</div>
+		<br />
+		<div class="row">
+			<label for="date">Date: * </label>
+			<input
+				type="date"
+				name="date"
+				id="date"
+				required
+			/>
+		</div>
+		<br />
+	</div>
+    <button type="submit"> Create </button>
+  </form>
+</div>
+</div>

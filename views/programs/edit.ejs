@@ -1,0 +1,55 @@
+<div class="content">
+	<div class="data-form">
+	<form method = "POST" action = "<%=`/programs/${program._id}/update?_method=PUT`%>">
+		<h2>Edit program information:</h2>
+		<div class="form-inputs">
+			<div class="row">
+				<label for = "name">Name: * </label>
+				<input
+					type = "text"
+					name = "name"
+					id = "name"
+					value = "<%= program.name %>"
+					required
+					autofocus
+				>
+			</div>
+			<br />
+			<div class="row">
+				<label for = "description" >Description: * </label>
+				<input
+					type = "text"
+					name = "description"
+					id = "description"
+					value = "<%= program.description %>"
+					required
+				>
+			</div>
+			<br />
+			<div class="row">
+				<label for = "schedule">Schedule: * </label>
+				<input
+					type = "text"
+					name = "schedule"
+					id = "schedule"
+					value = "<%= program.schedule %>"
+					required
+				>		
+			</div>
+			<br />
+			<div class="row">
+				<label for = "instructor">Instructor: * </label>
+				<input
+					type = "text"
+					name = "instructor"
+					id = "instructor"
+					value = "<%= program.instructor %>"
+					required
+				>
+			</div>
+			<br />
+		</div>
+		<button type = "submit"> Update Info </button>
+	</form>
+	</div>
+</div>
