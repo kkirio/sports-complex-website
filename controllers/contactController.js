@@ -96,10 +96,11 @@ module.exports = {
 
 	/* Ensures req fields follow model specifications */
 	validate: (req, res, next) => {
-		req.check("name", "Name cannot be empty.").notEmpty();
-		req.check("email", "Email is invalid.").isEmail();
-		req.check("title", "Title cannot be empty.").notEmpty();
-		req.check("issue", "Issue cannot be empty.").notEmpty();
+		console.log(req.body);
+		req.check("name", "Name cannot be empty").notEmpty();
+		req.check("email", "Email is invalid").isEmail();
+		req.check("title", "Title cannot be empty").notEmpty();
+		req.check("issue", "Issue cannot be empty").notEmpty();
 		req.getValidationResult().then((error) => {
 			if (!error.isEmpty()) {
 				let messages = error.array().map((e) => e.msg);

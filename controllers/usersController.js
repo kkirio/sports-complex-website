@@ -177,6 +177,7 @@ module.exports = {
 
 	/* Validate input to match user schema */
 	validate: (req, res, next) => {
+		console.log(req.body);
 		req.sanitizeBody("email").trim();
 		req.check("name", "Name cannot be empty").notEmpty();
 		req.check("email", "Email is invalid").isEmail();

@@ -9,30 +9,32 @@
 		<% } %>
 		<h2>Send a message</h2>
 	</div>
-  <form action="/contact/create" method="POST">
-	<div class="form-inputs">
-		<div class="row">
-			<label for="inputName">Name: * </label>
-			<input type="text" name="name" id="inputName" autofocus required>
+
+	<form action="/contact/create" method="POST">
+		<div class="form-inputs">
+			<div class="row">
+				<label for="name">Name: * </label>
+				<input type="text" name="name" id="name" autofocus required>
+			</div>
+			<br>
+			<div class="row">
+				<label for="email">Email: * </label>
+				<input type="text" name="email" id="email" required>
+			</div>
+			<br>
+			<div class="row">
+				<label for="title">Title: * </label>
+				<input type="text" name="title" id="title" required>
+			</div>
 		</div>
 		<br>
-		<div class="row">
-			<label for="inputEmail">Email: * </label>
-			<input type="text" name="email" id="inputEmail" required>
-		</div>
+		<label for="issue">Issue: * </label><br>
+		<textarea name="issue" id="issue" cols="30" rows="10" required></textarea>
 		<br>
-		<div class="row">
-			<label for="iputTitle">Title: * </label>
-			<input type="text" name="title" id="inputTitle" required>
-		</div>
 		<br>
-	</div>
-	<label for="inputIssue">Issue: * </label><br>
-	<textarea name="issue" id="inputIssue" cols="30" rows="10" required></textarea>
-	<br />
-	<br />
-    <input type="submit" value="Submit" />
-  </form>
-  <br />
+		<button type="submit"> Send </button>
+		<br>
+		<br>
+	</form>
 </div>
 

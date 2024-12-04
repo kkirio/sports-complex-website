@@ -12,10 +12,6 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  password: {
-    type: String,
-    required: true,
-  },
   membership: [
     {
       type: mongoose.Schema.Types.ObjectId,
