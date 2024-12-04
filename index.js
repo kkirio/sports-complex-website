@@ -8,13 +8,14 @@ const cookieParser = require("cookie-parser");
 const expressSession = require("express-session");
 const expressValidator = require("express-validator");
 const passport = require("passport");
+const dotenv = require("dotenv");
 const User = require("./models/user");
 const router = require("./routes/index");
 
+dotenv.config();
+
 const app = express();
-/* Connect to "mongodb://localhost:27017/brandeisAthleticsComplex" on Mac
-   Connect to "mongodb://0.0.0.0:27017/brandeisAthleticsComplex" on Windows */
-mongoose.connect("mongodb://0.0.0.0:27017/brandeisAthleticsComplex");
+mongoose.connect(process.env.ATLAS_URI);
 const db = mongoose.connection;
 db.once("open", () => {
   console.log("Successfully connected to mongodb!");
@@ -22,7 +23,7 @@ db.once("open", () => {
 
 app.use(express.static("public"));
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(layouts);
 app.use(expressValidator());
@@ -31,10 +32,10 @@ app.use(
     methods: ["POST", "GET"],
   })
 );
-app.use(cookieParser("secret-pascode"));
+app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(
   expressSession({
-    secret: "secret_passcode",
+    secret: process.env.SESSION_SECRET,
     cookie: {
       maxAge: 40000,
     },
@@ -58,12 +59,12 @@ app.use((req, res, next) => {
   next();
 });
 
-
 //use the index page in router to render entire application
 app.use("/", router);
 
-app.listen(3000, () => {
-  console.log("application is running");
+const port = process.env.PORT;
+app.listen(port, () => {
+  console.log(`Server is listening at http://localhost:${port}`);
 });
 
 

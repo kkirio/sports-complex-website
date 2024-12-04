@@ -4,6 +4,7 @@
   "description": "As a node.js/express.js develper you and your gourp-mates are asked to collaborate in this repository to create a website for sport complex of the Brandeis University to effectively showcases the facilities, programs, and events, and encourages visitors to become members.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,6 +15,7 @@
     "connect": "^3.7.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "express-ejs-layouts": "^2.5.1",
